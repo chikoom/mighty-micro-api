@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import SwipeableViews from 'react-swipeable-views'
+import TabPanel from './TabPanel'
 
 import {
-  AppBar,
   Box,
   Button,
   FormControl,
@@ -16,22 +16,6 @@ import {
   useTheme,
 } from '@material-ui/core'
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props
-
-  return (
-    <div
-      role='tabpanel'
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box p={3}>{children}</Box>}
-    </div>
-  )
-}
-
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
@@ -39,7 +23,12 @@ function a11yProps(index) {
   }
 }
 
-const useStyles = makeStyles(theme => ({}))
+const useStyles = makeStyles(theme => ({
+  submitBtn: {
+    marginTop: '2em',
+    marginBottom: '2em',
+  },
+}))
 
 const Login = () => {
   const classes = useStyles()
@@ -79,6 +68,12 @@ const Login = () => {
       [e.target.name]: e.target.value,
     })
   }
+  const handleLoginSubmit = () => {
+    console.log(loginValues)
+  }
+  const handleSignUpSubmit = () => {
+    console.log(signupValues)
+  }
   return (
     <Paper elevation={2}>
       <Tabs
@@ -93,11 +88,7 @@ const Login = () => {
         <Tab label='Signup' {...a11yProps(1)} />
       </Tabs>
 
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
+      <SwipeableViews index={value} onChangeIndex={handleChangeIndex}>
         <TabPanel value={value} index={0} dir={theme.direction}>
           <form className={classes.root} noValidate autoComplete='off'>
             <FormControl fullWidth className={classes.margin}>
@@ -114,6 +105,14 @@ const Login = () => {
                 value={loginValues.password}
                 onChange={handleLoginInput}
               />
+              <Button
+                variant='contained'
+                className={classes.submitBtn}
+                color='primary'
+                onClick={handleLoginSubmit}
+              >
+                LOGIN
+              </Button>
             </FormControl>
           </form>
         </TabPanel>
@@ -123,13 +122,13 @@ const Login = () => {
               <TextField
                 name='firstName'
                 label='firstName'
-                value={signupValues.email}
+                value={signupValues.firstName}
                 onChange={handleSignupInput}
               />
               <TextField
                 name='lastName'
                 label='lastName'
-                value={signupValues.email}
+                value={signupValues.lastName}
                 onChange={handleSignupInput}
               />
               <TextField
@@ -141,7 +140,7 @@ const Login = () => {
               <TextField
                 name='phone'
                 label='phone'
-                value={signupValues.email}
+                value={signupValues.phone}
                 onChange={handleSignupInput}
               />
               <TextField
@@ -151,6 +150,14 @@ const Login = () => {
                 value={signupValues.password}
                 onChange={handleSignupInput}
               />
+              <Button
+                variant='contained'
+                className={classes.submitBtn}
+                color='primary'
+                onClick={handleSignUpSubmit}
+              >
+                SIGNUP
+              </Button>
             </FormControl>
           </form>
         </TabPanel>
