@@ -43,6 +43,12 @@ let mightyTheme = createMuiTheme({
       fontFamily: 'Raleway',
     },
   },
+  custom: {
+    spacer: {
+      display: 'block',
+      marginTop: '5em',
+    },
+  },
   overrides: {
     MuiInputLabel: {
       root: {

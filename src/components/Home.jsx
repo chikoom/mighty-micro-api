@@ -1,5 +1,12 @@
 import React from 'react'
-import { Button, Grid, makeStyles, Typography } from '@material-ui/core'
+import {
+  Button,
+  Grid,
+  makeStyles,
+  Typography,
+  useTheme,
+} from '@material-ui/core'
+import Login from './Login'
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -9,6 +16,7 @@ const useStyles = makeStyles(theme => ({
 
 const Home = () => {
   const classes = useStyles()
+  const theme = useTheme()
   return (
     <Grid
       container
@@ -22,7 +30,16 @@ const Home = () => {
           <Grid item>
             <Typography variant='h1'>Welcome To Mighty-Micro API</Typography>
           </Grid>
-          <Grid item>BUTTON</Grid>
+          <Grid item>
+            <Typography variant='body1'>
+              This is a simple demonstration of a serverless app, using Lambda
+              functions
+            </Typography>
+            <div style={{ margin: theme.spacing(5) }}></div>
+          </Grid>
+          <Grid item>
+            <Login />
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
