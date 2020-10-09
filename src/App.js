@@ -1,11 +1,14 @@
 import React from 'react'
-import { Button } from '@material-ui/core'
+import { ThemeProvider } from '@material-ui/core/styles'
+import mightyTheme from './components/theme'
+import Home from './components/Home'
+import './App.css'
 
 function App() {
   return (
-    <Button color='primary' variant='contained'>
-      Hello World
-    </Button>
+    <ThemeProvider theme={mightyTheme}>
+      <Home />
+    </ThemeProvider>
   )
 }
 
