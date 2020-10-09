@@ -35,8 +35,8 @@ const Home = () => {
               This is a simple demonstration of a serverless app, using Lambda
               functions
             </Typography>
-            <div style={{ margin: theme.spacing(5) }}></div>
           </Grid>
+          <div style={{ margin: theme.spacing(5) }}></div>
           <Grid item>
             <Login />
           </Grid>
