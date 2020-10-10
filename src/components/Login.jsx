@@ -44,7 +44,6 @@ const Login = () => {
     password: '',
     firstName: '',
     lastName: '',
-    phone: '',
   });
 
   const handleChange = (event, newValue) => {
@@ -83,7 +82,12 @@ const Login = () => {
 
   const handleSignUpSubmit = () => {
     console.log(signupValues);
-    
+    axios
+      .post(
+        `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/signup`,
+        signupValues
+      )
+      .then((res) => console.log(res));
   };
 
   return (
@@ -147,12 +151,6 @@ const Login = () => {
                 name="email"
                 label="email"
                 value={signupValues.email}
-                onChange={handleSignupInput}
-              />
-              <TextField
-                name="phone"
-                label="phone"
-                value={signupValues.phone}
                 onChange={handleSignupInput}
               />
               <TextField
