@@ -1,26 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
-import {
-  Box,
-  Button,
-  FormControl,
-  Grid,
-  makeStyles,
-  Paper,
-  Tab,
-  Tabs,
-  TextField,
-  Typography,
-  useTheme,
-} from '@material-ui/core';
-
-function a11yProps(index) {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
-}
+import { Button, FormControl, makeStyles, TextField } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   submitBtn: {
@@ -30,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UpdateUser = (props) => {
-  const { userData, creteNewUser } = props;
+  const { creteNewUser } = props;
   const classes = useStyles();
 
   const [userValues, setUserValues] = useState({

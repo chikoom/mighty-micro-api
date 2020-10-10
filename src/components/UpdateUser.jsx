@@ -2,13 +2,6 @@ import React, { useState } from 'react';
 
 import { Button, FormControl, makeStyles, TextField } from '@material-ui/core';
 
-function a11yProps(index) {
-  return {
-    id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
-  };
-}
-
 const useStyles = makeStyles((theme) => ({
   submitBtn: {
     marginTop: '2em',

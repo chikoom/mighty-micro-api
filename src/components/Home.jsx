@@ -1,37 +1,31 @@
-import React from 'react'
-import {
-  Button,
-  Grid,
-  makeStyles,
-  Typography,
-  useTheme,
-} from '@material-ui/core'
-import Login from './Login'
+import React from 'react';
+import { Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
+import Login from './Login';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   mainContainer: {
     minHeight: '100vh',
   },
-}))
+}));
 
 const Home = () => {
-  const classes = useStyles()
-  const theme = useTheme()
+  const classes = useStyles();
+  const theme = useTheme();
   return (
     <Grid
       container
-      justify='center'
-      alignContent='center'
-      alignItems='center'
+      justify="center"
+      alignContent="center"
+      alignItems="center"
       className={classes.mainContainer}
     >
       <Grid item>
-        <Grid item container direction='column'>
+        <Grid item container direction="column">
           <Grid item>
-            <Typography variant='h1'>Welcome To Mighty-Micro API</Typography>
+            <Typography variant="h1">Welcome To Mighty-Micro API</Typography>
           </Grid>
           <Grid item>
-            <Typography variant='body1'>
+            <Typography variant="body1">
               This is a simple demonstration of a serverless app, using Lambda
               functions
             </Typography>
@@ -43,7 +37,7 @@ const Home = () => {
         </Grid>
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

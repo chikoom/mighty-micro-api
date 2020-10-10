@@ -1,7 +1,7 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles'
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
-const vrPink = '#d84987'
-const vrBlue = '#306ca0'
+const vrPink = '#d84987';
+const vrBlue = '#306ca0';
 
 let mightyTheme = createMuiTheme({
   palette: {
@@ -57,7 +57,7 @@ let mightyTheme = createMuiTheme({
       },
     },
   },
-})
+});
 
-mightyTheme = responsiveFontSizes(mightyTheme)
-export default mightyTheme
+mightyTheme = responsiveFontSizes(mightyTheme);
+export default mightyTheme;
