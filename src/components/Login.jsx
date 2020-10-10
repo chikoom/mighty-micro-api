@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import UserList from './UserList';
 import SwipeableViews from 'react-swipeable-views';
 import TabPanel from './TabPanel';
 
@@ -104,7 +105,9 @@ const Login = () => {
       });
   };
 
-  return (
+  return user.email ? (
+    <UserList />
+  ) : (
     <Paper elevation={2}>
       <Tabs
         value={value}
