@@ -41,11 +41,28 @@ const UserList = () => {
     setIsCreate(!isCreate);
   };
 
+  const creteNewUser = (values) => {
+    axios
+      .post(
+        `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/users`,
+        values
+      )
+      .then((res) => {
+        console.log(res);
+        const user = res.data;
+        const newList = [...list];
+        newList.unshift(user);
+        setList(newList);
+        console.log(newList[0]);
+      });
+    toggleCreate();
+  };
+
   console.log(list);
   return (
     <>
       <Button onClick={toggleCreate}>Add New User</Button>
-      {isCreate && <CreateNew />}
+      {isCreate && <CreateNew creteNewUser={creteNewUser} />}
       <h1>All Users:</h1>
       <div
         style={{

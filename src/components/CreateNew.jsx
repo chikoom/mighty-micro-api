@@ -30,28 +30,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const UpdateUser = (props) => {
-  const { userData } = props;
+  const { userData, creteNewUser } = props;
   const classes = useStyles();
-  const theme = useTheme();
-  const [user, setUser] = useState({
-    firstName: userData.firstName,
-    lastName: userData.lastName,
-  });
-
-  const [value, setValue] = useState(0);
 
   const [userValues, setUserValues] = useState({
-    firstName: user.firstName,
-    lastName: user.lastName,
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
   });
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
 
   const handleUserInput = (e) => {
     console.log(e.target.name);
@@ -62,20 +49,7 @@ const UpdateUser = (props) => {
   };
 
   const handleUpdateSubmit = () => {
-    console.log(userValues);
-    console.log(userData.id);
-    axios
-      .post(
-        `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/users/${userData.id}`,
-        userValues
-      )
-      .then((res) => {
-        console.log(res);
-        const { firstName, lastName, email } = res.data;
-        const user = { firstName: firstName, lastName: lastName, email: email };
-        // setUser(user);
-        console.log(user);
-      });
+    creteNewUser(userValues);
   };
 
   return (
