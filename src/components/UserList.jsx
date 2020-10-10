@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import User from './User';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
+import CreateNew from './CreateNew';
 
 const UserList = () => {
   const [list, setList] = useState([]);
+  const [isCreate, setIsCreate] = useState(false);
 
   useEffect(() => {
     getAllUsers();
@@ -35,13 +37,15 @@ const UserList = () => {
       });
   };
 
-  const updateUser = () => {};
+  const toggleCreate = () => {
+    setIsCreate(!isCreate);
+  };
 
   console.log(list);
   return (
     <>
-      <Button>Add New User</Button>
-
+      <Button onClick={toggleCreate}>Add New User</Button>
+      {isCreate && <CreateNew />}
       <h1>All Users:</h1>
       <div
         style={{
@@ -53,12 +57,7 @@ const UserList = () => {
         className="list-container"
       >
         {list.map((user) => (
-          <User
-            key={user.id}
-            userData={user}
-            removeUser={removeUser}
-            updateUser={updateUser}
-          />
+          <User key={user.id} userData={user} removeUser={removeUser} />
         ))}
       </div>
     </>

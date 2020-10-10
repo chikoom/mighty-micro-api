@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -25,9 +26,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const User = (props) => {
-  const { userData, removeUser } = props;
-  const [editor, setEditor] = useState(false);
   const classes = useStyles();
+
+  const { userData, removeUser } = props;
+
+  const [editor, setEditor] = useState(false);
+
+  const [user, setUser] = useState(userData);
 
   const onEdit = () => {
     setEditor(!editor);
@@ -36,6 +41,23 @@ const User = (props) => {
   const onRemove = () => {
     removeUser(userData.id);
   };
+
+  const onUpdate = (values) => {
+    console.log(values);
+    axios
+      .put(
+        `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/users/${userData.id}`,
+        values
+      )
+      .then((res) => {
+        console.log(res);
+        const { firstName, lastName, email } = res.data;
+        const user = { firstName: firstName, lastName: lastName, email: email };
+        setUser(user);
+        console.log(user);
+      });
+  };
+
   return (
     <>
       <Card style={{ margin: '12px' }} className={classes.root}>
@@ -48,10 +70,10 @@ const User = (props) => {
             {`Name:`}
           </Typography>
           <Typography variant="h5" component="h2">
-            {` ${userData.firstName} ${userData.lastName}`}
+            {` ${user.firstName} ${user.lastName}`}
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
-            {`${userData.email}`}
+            {`${user.email}`}
           </Typography>
         </CardContent>
         <CardActions>
@@ -63,7 +85,7 @@ const User = (props) => {
           </Button>
         </CardActions>
       </Card>
-      {editor && <UpdateUser userData={userData} />}
+      {editor && <UpdateUser userData={user} updateUser={onUpdate} />}
     </>
   );
 };
