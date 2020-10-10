@@ -3,11 +3,13 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import mightyTheme from './components/theme';
 import Home from './components/Home';
 import './App.css';
+import UpdateUser from './components/UpdateUser';
+import UserList from './components/UserList';
 
 function App() {
   return (
     <ThemeProvider theme={mightyTheme}>
-      <Home />
+      <UserList />
     </ThemeProvider>
   );
 }
