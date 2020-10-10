@@ -63,7 +63,6 @@ const UpdateUser = (props) => {
 
   const handleUpdateSubmit = () => {
     console.log(userValues);
-    console.log(userData.id);
     axios
       .post(
         `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/users/${userData.id}`,
@@ -100,7 +99,7 @@ const UpdateUser = (props) => {
             color="primary"
             onClick={handleUpdateSubmit}
           >
-            Update
+            UPDATE
           </Button>
         </FormControl>
       </form>
