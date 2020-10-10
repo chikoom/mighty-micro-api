@@ -20,6 +20,22 @@ const UserList = () => {
         setList(usersList);
       });
 
+  const removeUser = (id) => {
+    axios
+      .delete(
+        `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/users/${id}`
+      )
+      .then((res) => {
+        console.log(res);
+        const index = list.findIndex((user) => user.id === id);
+        const updatedList = [...list];
+        updatedList.splice(index, 1);
+        setList(updatedList);
+      });
+  };
+
+  const updateUser = () => {};
+
   console.log(list);
   return (
     <>
@@ -33,8 +49,13 @@ const UserList = () => {
         }}
         className="list-container"
       >
-        {list.map((user, index) => (
-          <User key={index} userData={user} />
+        {list.map((user) => (
+          <User
+            key={user.id}
+            userData={user}
+            removeUser={removeUser}
+            updateUser={updateUser}
+          />
         ))}
       </div>
     </>

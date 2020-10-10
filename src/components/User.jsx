@@ -24,9 +24,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const User = (props) => {
-  const { userData } = props;
+  const { userData, removeUser } = props;
   const classes = useStyles();
 
+
+  const onRemove = () => {
+    removeUser(userData.id);
+  };
   return (
     <Card style={{ margin: '12px' }} className={classes.root}>
       <CardContent>
@@ -46,7 +50,9 @@ const User = (props) => {
       </CardContent>
       <CardActions>
         <Button size="small">Update</Button>
-        <Button size="small">Remove</Button>
+        <Button onClick={onRemove} size="small">
+          Remove
+        </Button>
       </CardActions>
     </Card>
   );
