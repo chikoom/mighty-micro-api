@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const [user, setUser] = useState({});
+
   const [value, setValue] = useState(0);
   const [loginValues, setLoginValues] = useState({
     email: '',
@@ -77,7 +79,13 @@ const Login = () => {
         `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/login`,
         loginValues
       )
-      .then((res) => console.log(res));
+      .then((res) => {
+        console.log(res);
+        const { firstName, lastName, email } = res.data;
+        const user = { firstName: firstName, lastName: lastName, email: email };
+        setUser(user);
+        console.log(user);
+      });
   };
 
   const handleSignUpSubmit = () => {
@@ -87,7 +95,13 @@ const Login = () => {
         `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/signup`,
         signupValues
       )
-      .then((res) => console.log(res));
+      .then((res) => {
+        console.log(res);
+        const { firstName, lastName, email } = res.data;
+        const user = { firstName: firstName, lastName: lastName, email: email };
+        setUser(user);
+        console.log(user);
+      });
   };
 
   return (
