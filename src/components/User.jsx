@@ -34,7 +34,7 @@ const User = (props) => {
 
   const [user, setUser] = useState(userData);
 
-  const onEdit = () => {
+  const toggleEdit = () => {
     setEditor(!editor);
   };
   const onRemove = () => {
@@ -51,6 +51,7 @@ const User = (props) => {
         const { firstName, lastName, email } = res.data;
         const user = { firstName: firstName, lastName: lastName, email: email };
         setUser(user);
+        toggleEdit();
       });
   };
 
@@ -73,7 +74,7 @@ const User = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={onEdit} size="small">
+          <Button onClick={toggleEdit} size="small">
             Update
           </Button>
           <Button onClick={onRemove} size="small">
