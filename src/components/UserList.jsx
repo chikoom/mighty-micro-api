@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import User from './User';
 import axios from 'axios';
+import { Button } from '@material-ui/core';
 
 const UserList = () => {
   const [list, setList] = useState([]);
@@ -39,6 +40,8 @@ const UserList = () => {
   console.log(list);
   return (
     <>
+      <Button>Add New User</Button>
+
       <h1>All Users:</h1>
       <div
         style={{
