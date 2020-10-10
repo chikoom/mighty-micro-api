@@ -1,12 +1,12 @@
-import { Box } from '@material-ui/core'
-import React from 'react'
+import { Box } from '@material-ui/core';
+import React from 'react';
 
-const TabPanel = props => {
-  const { children, value, index, ...other } = props
+const TabPanel = (props) => {
+  const { children, value, index, ...other } = props;
 
   return (
     <div
-      role='tabpanel'
+      role="tabpanel"
       hidden={value !== index}
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
@@ -14,7 +14,7 @@ const TabPanel = props => {
     >
       {value === index && <Box p={3}>{children}</Box>}
     </div>
-  )
-}
+  );
+};
 
-export default TabPanel
+export default TabPanel;
