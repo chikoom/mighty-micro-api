@@ -21,7 +21,6 @@ const UpdateUser = (props) => {
   });
 
   const handleUserInput = (e) => {
-    console.log(e.target.name);
     setUserValues({
       ...userValues,
       [e.target.name]: e.target.value,

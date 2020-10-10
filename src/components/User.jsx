@@ -36,25 +36,21 @@ const User = (props) => {
 
   const onEdit = () => {
     setEditor(!editor);
-    console.log(editor);
   };
   const onRemove = () => {
     removeUser(userData.id);
   };
 
   const onUpdate = (values) => {
-    console.log(values);
     axios
       .put(
         `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/users/${userData.id}`,
         values
       )
       .then((res) => {
-        console.log(res);
         const { firstName, lastName, email } = res.data;
         const user = { firstName: firstName, lastName: lastName, email: email };
         setUser(user);
-        console.log(user);
       });
   };
 

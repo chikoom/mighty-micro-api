@@ -18,7 +18,6 @@ const UserList = () => {
         'https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/users'
       )
       .then((res) => {
-        console.log(res);
         const usersList = res.data;
         setList(usersList);
       });
@@ -29,7 +28,6 @@ const UserList = () => {
         `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/users/${id}`
       )
       .then((res) => {
-        console.log(res);
         const index = list.findIndex((user) => user.id === id);
         const updatedList = [...list];
         updatedList.splice(index, 1);
@@ -48,17 +46,14 @@ const UserList = () => {
         values
       )
       .then((res) => {
-        console.log(res);
         const user = res.data;
         const newList = [...list];
         newList.unshift(user);
         setList(newList);
-        console.log(newList[0]);
       });
     toggleCreate();
   };
 
-  console.log(list);
   return (
     <>
       <Button onClick={toggleCreate}>Add New User</Button>

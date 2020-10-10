@@ -55,7 +55,6 @@ const Login = () => {
   };
 
   const handleLoginInput = (e) => {
-    console.log(e.target.name);
     setLoginValues({
       ...loginValues,
       [e.target.name]: e.target.value,
@@ -63,7 +62,6 @@ const Login = () => {
   };
 
   const handleSignupInput = (e) => {
-    console.log(e.target.name);
     setSignupValues({
       ...signupValues,
       [e.target.name]: e.target.value,
@@ -71,34 +69,28 @@ const Login = () => {
   };
 
   const handleLoginSubmit = () => {
-    console.log(loginValues);
     axios
       .post(
         `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/login`,
         loginValues
       )
       .then((res) => {
-        console.log(res);
         const { firstName, lastName, email } = res.data;
         const user = { firstName: firstName, lastName: lastName, email: email };
         setUser(user);
-        console.log(user);
       });
   };
 
   const handleSignUpSubmit = () => {
-    console.log(signupValues);
     axios
       .post(
         `https://b13gd54k3g.execute-api.eu-central-1.amazonaws.com/dev/signup`,
         signupValues
       )
       .then((res) => {
-        console.log(res);
         const { firstName, lastName, email } = res.data;
         const user = { firstName: firstName, lastName: lastName, email: email };
         setUser(user);
-        console.log(user);
       });
   };
 
