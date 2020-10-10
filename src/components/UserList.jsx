@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import User from './User';
 import axios from 'axios';
 
 const UserList = () => {
@@ -20,6 +21,23 @@ const UserList = () => {
       });
 
   console.log(list);
-  return <div>Hello</div>;
+  return (
+    <>
+      <h1>All Users:</h1>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        className="list-container"
+      >
+        {list.map((user, index) => (
+          <User key={index} userData={user} />
+        ))}
+      </div>
+    </>
+  );
 };
 export default UserList;
