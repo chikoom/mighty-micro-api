@@ -30,7 +30,7 @@ const UpdateUser = (props) => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: 'white', padding: '12px' }}>
       <form className={classes.root} noValidate autoComplete="off">
         <FormControl fullWidth className={classes.margin}>
           <TextField
