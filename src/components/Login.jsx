@@ -101,7 +101,7 @@ const Login = () => {
   };
 
   return user.email ? (
-    <UserList />
+    <UserList user={user} setUser={setUser} />
   ) : (
     <Paper elevation={2}>
       <Tabs

@@ -4,7 +4,8 @@ import axios from 'axios';
 import { Button } from '@material-ui/core';
 import CreateNew from './CreateNew';
 
-const UserList = () => {
+const UserList = (props) => {
+  const { user, setUser } = props;
   const [list, setList] = useState([]);
   const [isCreate, setIsCreate] = useState(false);
 
@@ -60,8 +61,15 @@ const UserList = () => {
     toggleCreate();
   };
 
+  const logOut = () => {
+    setUser({});
+  };
+
   return (
     <>
+      <Button variant="contained" color="primary" onClick={logOut}>
+        LogOut
+      </Button>
       <Button variant="contained" color="primary" onClick={toggleCreate}>
         Add New User
       </Button>
