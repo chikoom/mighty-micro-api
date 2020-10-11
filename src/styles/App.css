@@ -1,0 +1,27 @@
+html,
+body {
+  min-height: 100vh;
+  background-color: #0c056d;
+  color: white;
+}
+
+.small-form-box {
+  background-color: white;
+  padding: 12px;
+}
+
+.card {
+  margin: 12px;
+}
+
+.list-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px;
+}

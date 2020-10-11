@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-
 import { Button, FormControl, makeStyles, TextField } from '@material-ui/core';
+import '../styles/App.css';
 
 const useStyles = makeStyles((theme) => ({
   submitBtn: {
@@ -32,7 +32,7 @@ const UpdateUser = (props) => {
   };
 
   return (
-    <div style={{ backgroundColor: 'white', padding: '12px' }}>
+    <div className="small-form-box">
       <form className={classes.root} noValidate autoComplete="off">
         <FormControl fullWidth className={classes.margin}>
           <TextField

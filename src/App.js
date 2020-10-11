@@ -1,8 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
-import mightyTheme from './components/theme';
+import mightyTheme from './styles/theme';
 import Home from './components/Home';
-import './App.css';
+import './styles/App.css';
 
 function App() {
   return (

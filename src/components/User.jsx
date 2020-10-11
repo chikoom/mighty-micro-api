@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import UpdateUser from './UpdateUser';
+import '../styles/App.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,7 +61,7 @@ const User = (props) => {
 
   return (
     <>
-      <Card style={{ margin: '12px' }} className={classes.root}>
+      <Card className={`${classes.root} card`}>
         <CardContent>
           <Typography
             className={classes.title}

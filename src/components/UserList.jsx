@@ -3,6 +3,7 @@ import User from './User';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
 import CreateNew from './CreateNew';
+import '../styles/App.css';
 
 const UserList = (props) => {
   const { user, setUser } = props;
@@ -67,35 +68,19 @@ const UserList = (props) => {
 
   return (
     <>
-      <Button
-        style={{ margin: '7px' }}
-        variant="contained"
-        color="primary"
-        onClick={logOut}
-      >
-        LogOut
-      </Button>
-      <Button
-        style={{ margin: '7px' }}
-        variant="contained"
-        color="primary"
-        onClick={toggleCreate}
-      >
-        Add New User
-      </Button>
+      <div className="btn-container">
+        <Button variant="contained" color="default" onClick={logOut}>
+          LogOut
+        </Button>
+        <Button variant="contained" color="primary" onClick={toggleCreate}>
+          Add New User
+        </Button>
+      </div>
       {isCreate && <CreateNew creteNewUser={creteNewUser} />}
       <h1>All Users:</h1>
-      <div
-        style={{
-          display: 'grid',
-          // flexWrap: 'wrap',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        className="list-container"
-      >
-        {list.map((user) => (
-          <User key={user.id} userData={user} removeUser={removeUser} />
+      <div className="list-container">
+        {list.map((usr) => (
+          <User key={usr.id} userData={usr} removeUser={removeUser} />
         ))}
       </div>
     </>
