@@ -74,10 +74,20 @@ const User = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={toggleEdit} size="small">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={toggleEdit}
+            size="small"
+          >
             Update
           </Button>
-          <Button onClick={onRemove} size="small">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={onRemove}
+            size="small"
+          >
             Remove
           </Button>
         </CardActions>

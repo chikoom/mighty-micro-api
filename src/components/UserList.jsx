@@ -56,13 +56,15 @@ const UserList = () => {
 
   return (
     <>
-      <Button onClick={toggleCreate}>Add New User</Button>
+      <Button variant="contained" color="primary" onClick={toggleCreate}>
+        Add New User
+      </Button>
       {isCreate && <CreateNew creteNewUser={creteNewUser} />}
       <h1>All Users:</h1>
       <div
         style={{
-          display: 'flex',
-          flexWrap: 'wrap',
+          display: 'grid',
+          // flexWrap: 'wrap',
           justifyContent: 'center',
           alignItems: 'center',
         }}
