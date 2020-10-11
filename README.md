@@ -1,7 +1,22 @@
-## <p align="center"><img src="" width="300" /> </p>
+# MightyMicro API
 
+## A small API for users handling using serverless architecture and AWS services
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## <p align="center">Architecture Layout</p>
+
+## <p align="center"><img src="https://docs.google.com/drawings/d/e/2PACX-1vTQlbQPhB2Qnh5hh5dKZj4RbLTqK7V9VyeJ1C3WmUZNKfqVreaWiNLalsif8UUaFuVhRa1ApFVQ7LPh/pub?w=787&h=526" width="300" /> </p>
+
+## Project Links:
+
+- POC - [Link](https://docs.google.com/document/d/1EO46hMZ_tN8RhxRoi7QeXQE3kkOAu02tLZScr6zdJa4/edit?usp=sharing)
+- Front-End Repo: [Link](https://github.com/chikoom/mighty-micro-api)
+- Front-End Deployment: [Link](https://mighty-api.s3.eu-central-1.amazonaws.com/index.html)
+- Serverless Repo: [Link](https://github.com/chikoom/serverless-project)
+- Swagger API: [Link](https://app.swaggerhub.com/apis/chikoom2/MightyMicroAPI/1.0.0)
+
+---
+
+## This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
