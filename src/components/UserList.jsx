@@ -67,10 +67,20 @@ const UserList = (props) => {
 
   return (
     <>
-      <Button variant="contained" color="primary" onClick={logOut}>
+      <Button
+        style={{ margin: '7px' }}
+        variant="contained"
+        color="primary"
+        onClick={logOut}
+      >
         LogOut
       </Button>
-      <Button variant="contained" color="primary" onClick={toggleCreate}>
+      <Button
+        style={{ margin: '7px' }}
+        variant="contained"
+        color="primary"
+        onClick={toggleCreate}
+      >
         Add New User
       </Button>
       {isCreate && <CreateNew creteNewUser={creteNewUser} />}
