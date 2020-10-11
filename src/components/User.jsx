@@ -51,8 +51,11 @@ const User = (props) => {
         const { firstName, lastName, email } = res.data;
         const user = { firstName: firstName, lastName: lastName, email: email };
         setUser(user);
-        toggleEdit();
+      })
+      .catch((err) => {
+        alert('something went wrong ' + err + ' could not update user');
       });
+    toggleEdit();
   };
 
   return (
@@ -74,10 +77,20 @@ const User = (props) => {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button onClick={toggleEdit} size="small">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={toggleEdit}
+            size="small"
+          >
             Update
           </Button>
-          <Button onClick={onRemove} size="small">
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={onRemove}
+            size="small"
+          >
             Remove
           </Button>
         </CardActions>

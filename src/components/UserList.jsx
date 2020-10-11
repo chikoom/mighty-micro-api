@@ -4,7 +4,8 @@ import axios from 'axios';
 import { Button } from '@material-ui/core';
 import CreateNew from './CreateNew';
 
-const UserList = () => {
+const UserList = (props) => {
+  const { user, setUser } = props;
   const [list, setList] = useState([]);
   const [isCreate, setIsCreate] = useState(false);
 
@@ -32,6 +33,9 @@ const UserList = () => {
         const updatedList = [...list];
         updatedList.splice(index, 1);
         setList(updatedList);
+      })
+      .catch((err) => {
+        alert('something went wrong ' + err);
       });
   };
 
@@ -50,19 +54,41 @@ const UserList = () => {
         const newList = [...list];
         newList.unshift(user);
         setList(newList);
+      })
+      .catch((err) => {
+        alert('something went wrong ' + err + ' try using deferent email');
       });
     toggleCreate();
   };
 
+  const logOut = () => {
+    setUser({});
+  };
+
   return (
     <>
-      <Button onClick={toggleCreate}>Add New User</Button>
+      <Button
+        style={{ margin: '7px' }}
+        variant="contained"
+        color="primary"
+        onClick={logOut}
+      >
+        LogOut
+      </Button>
+      <Button
+        style={{ margin: '7px' }}
+        variant="contained"
+        color="primary"
+        onClick={toggleCreate}
+      >
+        Add New User
+      </Button>
       {isCreate && <CreateNew creteNewUser={creteNewUser} />}
       <h1>All Users:</h1>
       <div
         style={{
-          display: 'flex',
-          flexWrap: 'wrap',
+          display: 'grid',
+          // flexWrap: 'wrap',
           justifyContent: 'center',
           alignItems: 'center',
         }}
