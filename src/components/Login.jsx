@@ -78,6 +78,9 @@ const Login = () => {
         const { firstName, lastName, email } = res.data;
         const user = { firstName: firstName, lastName: lastName, email: email };
         setUser(user);
+      })
+      .catch((err) => {
+        alert('something went wrong ' + err + ' check your email and password');
       });
   };
 
@@ -91,6 +94,9 @@ const Login = () => {
         const { firstName, lastName, email } = res.data;
         const user = { firstName: firstName, lastName: lastName, email: email };
         setUser(user);
+      })
+      .catch((err) => {
+        alert('something went wrong ' + err + ' try using deferent email');
       });
   };
 

@@ -32,6 +32,9 @@ const UserList = () => {
         const updatedList = [...list];
         updatedList.splice(index, 1);
         setList(updatedList);
+      })
+      .catch((err) => {
+        alert('something went wrong ' + err);
       });
   };
 
@@ -50,6 +53,9 @@ const UserList = () => {
         const newList = [...list];
         newList.unshift(user);
         setList(newList);
+      })
+      .catch((err) => {
+        alert('something went wrong ' + err + ' try using deferent email');
       });
     toggleCreate();
   };

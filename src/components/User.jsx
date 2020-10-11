@@ -51,8 +51,11 @@ const User = (props) => {
         const { firstName, lastName, email } = res.data;
         const user = { firstName: firstName, lastName: lastName, email: email };
         setUser(user);
-        toggleEdit();
+      })
+      .catch((err) => {
+        alert('something went wrong ' + err + ' could not update user');
       });
+    toggleEdit();
   };
 
   return (
